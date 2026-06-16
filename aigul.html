@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ANELYA — Қыз ұзату тойына шақыру</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#f4efe4;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+@keyframes shimmer{to{background-position:200% center}}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.09)}}
+@keyframes bob{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(10px);opacity:1}}
+@keyframes tw{0%,100%{opacity:.2;transform:scale(.8) rotate(0deg)}50%{opacity:1;transform:scale(1.15) rotate(45deg)}}
+@keyframes pf-fall{from{transform:translateY(-14vh)}to{transform:translateY(116vh)}}
+@keyframes pf-sway{0%,100%{transform:translateX(-16px) rotate(-25deg)}50%{transform:translateX(16px) rotate(25deg)}}
+@keyframes eq{0%,100%{transform:scaleY(.35)}50%{transform:scaleY(1)}}
+@keyframes ringpulse{0%,100%{box-shadow:0 0 0 3px rgba(201,162,76,.16)}50%{box-shadow:0 0 0 7px rgba(201,162,76,.05)}}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);row-gap:2px;column-gap:2px;max-width:440px;margin:0 auto;width:100%}
+.cal-cell{padding:7px 2px;font-family:'Playfair Display',serif;font-size:clamp(15px,4.2vw,20px);color:#7a1622;text-align:center}
+.cal-head{font-weight:700;color:#9a2b22;font-size:clamp(12px,3.4vw,16px);letter-spacing:.03em;padding-bottom:10px}
+.cal-6{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1.6px solid #c9a24c;box-shadow:0 0 0 3px rgba(201,162,76,.16);animation:ringpulse 2.6s ease-in-out infinite;color:#7a1320;font-weight:600}
+.cal-month{text-align:center;font-family:'Playfair Display',serif;letter-spacing:.1em;color:#7a1320;font-size:clamp(15px,4vw,20px);margin:12px 0 14px}
+.map-btn:hover{background:#7a1320!important;color:#f6e6bf!important;box-shadow:0 10px 24px rgba(120,20,30,.25)!important}
+</style>
+</head>
+<body>
+<div style="position:relative;width:100%;overflow:hidden;background:#f4efe4">
+
+<!-- HERO -->
+<section style="position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(14px,3vw,26px);padding:clamp(40px,8vw,72px) 22px clamp(60px,9vw,86px);overflow:hidden;background:radial-gradient(125% 95% at 50% 32%,#7f1622 0%,#5d0e18 46%,#400a11 100%)">
+  <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 18% 22%,rgba(201,162,76,.10),transparent 38%),radial-gradient(circle at 82% 78%,rgba(201,162,76,.08),transparent 40%);pointer-events:none"></div>
+  <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(135deg,rgba(0,0,0,.05) 0 2px,transparent 2px 6px);opacity:.4;pointer-events:none;mix-blend-mode:multiply"></div>
+  <h1 data-reveal style="font-family:'Cinzel',serif;font-weight:600;font-size:clamp(40px,12.5vw,84px);letter-spacing:.26em;padding-left:.26em;line-height:1;background:linear-gradient(95deg,#e7cd86,#b5872f 30%,#f7e2a4 52%,#bb8c39 72%,#ecd28a);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:220% auto;filter:drop-shadow(0 3px 14px rgba(0,0,0,.45));animation:shimmer 7.5s linear infinite;opacity:0;transform:translateY(30px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)">ANELYA</h1>
+  <div data-reveal style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(50px,15vw,104px);line-height:.92;white-space:nowrap;background:linear-gradient(95deg,#e7cd86,#c0922f 32%,#f7e2a4 54%,#bb8c39 74%,#ecd28a);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:220% auto;filter:drop-shadow(0 4px 16px rgba(0,0,0,.5));animation:shimmer 8s linear infinite;opacity:0;transform:translateY(30px);transition:opacity 1.2s ease .12s,transform 1.2s cubic-bezier(.2,.7,.2,1) .12s">Қыз ұзату</div>
+  <div data-par="0.05" style="position:relative;width:min(74vw,358px);aspect-ratio:360/548;margin-top:6px">
+    <div style="position:absolute;inset:-13px;border:1px solid rgba(201,162,76,.55);border-radius:48% 48% 8% 8% / 38% 38% 5% 5%;pointer-events:none"></div>
+    <div style="position:absolute;inset:0;border-radius:48% 48% 7% 7% / 38% 38% 5% 5%;overflow:hidden;border:3px solid #c79a3f;box-shadow:0 26px 64px rgba(0,0,0,.5),inset 0 0 0 2px rgba(231,200,124,.35)">
+      <img src="project/assets/bride.png" alt="Anelya" style="width:100%;height:100%;object-fit:cover;object-position:50% 12%;animation:kb 18s ease-in-out infinite alternate">
+    </div>
+    <span style="position:absolute;left:-7px;top:44%;color:#ecd28a;font-size:18px;animation:tw 3.6s ease-in-out infinite">✦</span>
+    <span style="position:absolute;right:-7px;top:54%;color:#ecd28a;font-size:18px;animation:tw 3.6s ease-in-out .9s infinite">✦</span>
+    <span style="position:absolute;left:50%;bottom:-22px;transform:translateX(-50%);color:#ecd28a;font-size:15px;animation:tw 4s ease-in-out .5s infinite">✦</span>
+  </div>
+  <div data-reveal style="display:flex;align-items:center;gap:14px;margin-top:8px;opacity:0;transform:translateY(30px);transition:opacity 1.1s ease .24s,transform 1.1s cubic-bezier(.2,.7,.2,1) .24s">
+    <span style="height:1px;width:clamp(20px,7vw,46px);background:linear-gradient(90deg,transparent,#c9a24c)"></span>
+    <div style="font-family:'Playfair Display',serif;color:#ecd5a0;font-size:clamp(12px,3.4vw,17px);letter-spacing:.2em;text-align:center">ҚЫЗ ҰЗАТУ ТОЙЫНА ШАҚЫРУ</div>
+    <span style="height:1px;width:clamp(20px,7vw,46px);background:linear-gradient(90deg,#c9a24c,transparent)"></span>
+  </div>
+  <div style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;animation:bob 2.2s ease-in-out infinite">
+    <span style="font-family:'Playfair Display',serif;color:#d9b86a;font-size:11px;letter-spacing:.24em">ТӨМЕН ҚАРАЙ</span>
+    <span style="display:block;width:11px;height:11px;border-right:1.5px solid #d9b86a;border-bottom:1.5px solid #d9b86a;transform:rotate(45deg)"></span>
+  </div>
+</section>
+
+<!-- blend -->
+<div style="height:120px;margin-top:-1px;background:linear-gradient(#400a11,#4d0b13 18%,#f4efe4)"></div>
+
+<!-- GREETING -->
+<section style="position:relative;padding:clamp(20px,4vw,40px) 22px clamp(70px,11vw,120px);overflow:hidden">
+  <div data-par="-0.025" style="position:absolute;top:-30px;left:-14px;width:clamp(125px,36vw,190px);z-index:2"><img src="project/assets/floral-tl.png" style="width:100%;display:block" alt=""></div>
+  <div data-par="-0.04" style="position:absolute;top:-26px;right:-14px;width:clamp(110px,32vw,172px);z-index:2"><img src="project/assets/floral-tl.png" style="width:100%;display:block;transform:scaleX(-1)" alt=""></div>
+  <div style="max-width:600px;margin:0 auto;text-align:center;position:relative;z-index:3">
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1);display:flex;justify-content:center;margin-bottom:clamp(26px,5vw,40px)">
+      <div style="width:clamp(118px,30vw,150px);aspect-ratio:1/1.32;display:flex;align-items:center;justify-content:center;border:1.5px solid #c9a24c;border-radius:50%;background:#fbf7ec;box-shadow:inset 0 0 0 5px #f4efe4,inset 0 0 0 6px rgba(201,162,76,.5),0 8px 22px rgba(120,20,30,.12)">
+        <span style="font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(74px,20vw,104px);color:#7a1320;line-height:1;margin-top:-6px">А</span>
+      </div>
+    </div>
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease .08s,transform 1.1s cubic-bezier(.2,.7,.2,1) .08s;font-family:'Playfair Display',serif;font-style:italic;color:#7a1320;font-size:clamp(42px,12vw,72px);line-height:1.05">Құрметті қонақтар!</div>
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease .12s,transform 1.1s cubic-bezier(.2,.7,.2,1) .12s;display:flex;align-items:center;justify-content:center;gap:14px;margin:clamp(22px,5vw,34px) 0">
+      <span style="height:1px;width:clamp(36px,12vw,80px);background:linear-gradient(90deg,transparent,#c9a24c)"></span>
+      <span style="color:#c9a24c;font-size:15px;letter-spacing:.3em">✦</span>
+      <span style="height:1px;width:clamp(36px,12vw,80px);background:linear-gradient(90deg,#c9a24c,transparent)"></span>
+    </div>
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease .16s,transform 1.1s cubic-bezier(.2,.7,.2,1) .16s;font-family:'Playfair Display',serif;color:#7a1622;font-size:clamp(15px,4vw,21px);letter-spacing:.13em;line-height:1.6">СІЗДЕРДІ АЯУЛЫ ҚЫЗЫМЫЗ</div>
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease .2s,transform 1.1s cubic-bezier(.2,.7,.2,1) .2s;font-family:'Playfair Display',serif;font-style:italic;color:#7a1320;font-size:clamp(46px,13vw,80px);line-height:1.05;margin:6px 0 clamp(20px,4vw,30px)">Анеляның</div>
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease .24s,transform 1.1s cubic-bezier(.2,.7,.2,1) .24s;font-family:'Playfair Display',serif;color:#7a1622;font-size:clamp(15px,4vw,20px);letter-spacing:.1em;line-height:1.75">ҰЗАТУ ТОЙЫНА АРНАЛҒАН<br>АҚ ДАСТАРХАНЫМЫЗДЫҢ ҚАДІРЛІ<br>ҚОНАҒЫ БОЛУҒА ШАҚЫРАМЫЗ!</div>
+  </div>
+</section>
+
+<!-- DATE / COUNTDOWN -->
+<section style="position:relative;padding:clamp(50px,9vw,86px) 22px;background:linear-gradient(#f4efe4,#efe7d7,#f4efe4)">
+  <div style="max-width:560px;margin:0 auto;text-align:center">
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1);font-family:'Playfair Display',serif;font-style:italic;color:#7a1320;font-size:clamp(34px,9vw,56px)">Тойға дейін</div>
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease .1s,transform 1.1s cubic-bezier(.2,.7,.2,1) .1s;display:flex;justify-content:center;gap:clamp(8px,2.5vw,16px);margin:clamp(22px,5vw,32px) 0 clamp(40px,7vw,60px);flex-wrap:nowrap">
+      <div style="min-width:clamp(58px,18vw,82px);padding:clamp(10px,2.5vw,16px) 6px;border:1px solid #c9a24c;border-radius:12px;background:#fbf7ec;box-shadow:0 8px 20px rgba(120,20,30,.07)"><div id="cd-d" style="font-family:'Playfair Display',serif;font-weight:600;color:#7a1320;font-size:clamp(26px,8vw,40px);line-height:1">0</div><div style="font-family:'Playfair Display',serif;color:#9a5b3a;font-size:clamp(10px,2.6vw,12px);letter-spacing:.16em;margin-top:6px">КҮН</div></div>
+      <div style="min-width:clamp(58px,18vw,82px);padding:clamp(10px,2.5vw,16px) 6px;border:1px solid #c9a24c;border-radius:12px;background:#fbf7ec;box-shadow:0 8px 20px rgba(120,20,30,.07)"><div id="cd-h" style="font-family:'Playfair Display',serif;font-weight:600;color:#7a1320;font-size:clamp(26px,8vw,40px);line-height:1">00</div><div style="font-family:'Playfair Display',serif;color:#9a5b3a;font-size:clamp(10px,2.6vw,12px);letter-spacing:.16em;margin-top:6px">САҒАТ</div></div>
+      <div style="min-width:clamp(58px,18vw,82px);padding:clamp(10px,2.5vw,16px) 6px;border:1px solid #c9a24c;border-radius:12px;background:#fbf7ec;box-shadow:0 8px 20px rgba(120,20,30,.07)"><div id="cd-m" style="font-family:'Playfair Display',serif;font-weight:600;color:#7a1320;font-size:clamp(26px,8vw,40px);line-height:1">00</div><div style="font-family:'Playfair Display',serif;color:#9a5b3a;font-size:clamp(10px,2.6vw,12px);letter-spacing:.16em;margin-top:6px">МИНУТ</div></div>
+      <div style="min-width:clamp(58px,18vw,82px);padding:clamp(10px,2.5vw,16px) 6px;border:1px solid #c9a24c;border-radius:12px;background:#fbf7ec;box-shadow:0 8px 20px rgba(120,20,30,.07)"><div id="cd-s" style="font-family:'Playfair Display',serif;font-weight:600;color:#7a1320;font-size:clamp(26px,8vw,40px);line-height:1">00</div><div style="font-family:'Playfair Display',serif;color:#9a5b3a;font-size:clamp(10px,2.6vw,12px);letter-spacing:.16em;margin-top:6px">СЕКУНД</div></div>
+    </div>
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1);font-family:'Playfair Display',serif;font-style:italic;color:#7a1320;font-size:clamp(36px,10vw,60px);margin-bottom:14px">Той салтанаты:</div>
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease .08s,transform 1.1s cubic-bezier(.2,.7,.2,1) .08s;font-family:'Playfair Display',serif;color:#7a1622;font-size:clamp(17px,4.6vw,24px);letter-spacing:.08em;line-height:1.5">06 ҚЫРКҮЙЕК 2026 ЖЫЛ<br>САҒАТ 15:00</div>
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease .14s,transform 1.1s cubic-bezier(.2,.7,.2,1) .14s;margin-top:clamp(28px,6vw,44px)">
+      <div class="cal-grid">
+        <div class="cal-cell cal-head">ДС</div><div class="cal-cell cal-head">СС</div><div class="cal-cell cal-head">СН</div><div class="cal-cell cal-head">БС</div><div class="cal-cell cal-head">ЖМ</div><div class="cal-cell cal-head">СБ</div><div class="cal-cell cal-head">ЖБ</div>
+      </div>
+      <div class="cal-month">ҚЫРКҮЙЕК 2026</div>
+      <div class="cal-grid">
+        <div class="cal-cell"></div><div class="cal-cell">1</div><div class="cal-cell">2</div><div class="cal-cell">3</div><div class="cal-cell">4</div><div class="cal-cell">5</div><div class="cal-cell"><span class="cal-6">6</span></div>
+        <div class="cal-cell">7</div><div class="cal-cell">8</div><div class="cal-cell">9</div><div class="cal-cell">10</div><div class="cal-cell">11</div><div class="cal-cell">12</div><div class="cal-cell">13</div>
+        <div class="cal-cell">14</div><div class="cal-cell">15</div><div class="cal-cell">16</div><div class="cal-cell">17</div><div class="cal-cell">18</div><div class="cal-cell">19</div><div class="cal-cell">20</div>
+        <div class="cal-cell">21</div><div class="cal-cell">22</div><div class="cal-cell">23</div><div class="cal-cell">24</div><div class="cal-cell">25</div><div class="cal-cell">26</div><div class="cal-cell">27</div>
+        <div class="cal-cell">28</div><div class="cal-cell">29</div><div class="cal-cell">30</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADDRESS -->
+<section style="position:relative;padding:clamp(60px,10vw,100px) 22px;overflow:hidden">
+  <div data-par="-0.03" style="position:absolute;top:-18px;right:-16px;width:clamp(120px,33vw,180px);z-index:2"><img src="project/assets/floral-tl.png" style="width:100%;display:block;transform:scaleX(-1)" alt=""></div>
+  <div style="max-width:560px;margin:0 auto;text-align:center;position:relative;z-index:3">
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1);font-family:'Playfair Display',serif;font-style:italic;color:#7a1320;font-size:clamp(38px,10vw,62px)">Мекен-жайымыз:</div>
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease .08s,transform 1.1s cubic-bezier(.2,.7,.2,1) .08s;font-family:'Playfair Display',serif;color:#7a1622;font-size:clamp(16px,4.4vw,22px);letter-spacing:.08em;line-height:1.7;margin:clamp(20px,4vw,30px) 0">АЛМАТЫ ҚАЛАСЫ<br>«АЛМАСАЙ» МЕЙРАМХАНАСЫ<br>АЛМА-АРАСАН 106А</div>
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease .12s,transform 1.1s cubic-bezier(.2,.7,.2,1) .12s">
+      <a href="https://2gis.kz/almaty/geo/70030076174947127/76.906974,43.101124" target="_blank" rel="noopener" class="map-btn" style="display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-family:'Playfair Display',serif;font-size:clamp(14px,3.6vw,17px);letter-spacing:.12em;color:#7a1320;padding:13px 26px;white-space:nowrap;border:1.4px solid #c9a24c;border-radius:40px;background:#fbf7ec;transition:background .3s,color .3s,box-shadow .3s;box-shadow:0 6px 16px rgba(120,20,30,.08)">
+        <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#c9a24c;flex-shrink:0"></span>КАРТАДАН КӨРУ →
+      </a>
+    </div>
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease .12s,transform 1.1s cubic-bezier(.2,.7,.2,1) .12s;display:flex;align-items:center;justify-content:center;gap:14px;margin:clamp(40px,8vw,64px) 0 clamp(24px,5vw,34px)">
+      <span style="height:1px;width:clamp(40px,14vw,90px);background:linear-gradient(90deg,transparent,#c9a24c)"></span>
+      <span style="color:#c9a24c;font-size:15px">✦</span>
+      <span style="height:1px;width:clamp(40px,14vw,90px);background:linear-gradient(90deg,#c9a24c,transparent)"></span>
+    </div>
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease .16s,transform 1.1s cubic-bezier(.2,.7,.2,1) .16s;font-family:'Playfair Display',serif;font-style:italic;color:#7a1320;font-size:clamp(34px,9vw,56px)">Той иелері</div>
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease .2s,transform 1.1s cubic-bezier(.2,.7,.2,1) .2s;font-family:'Playfair Display',serif;color:#7a1622;font-size:clamp(17px,4.6vw,23px);letter-spacing:.2em;margin-top:8px">АЙГҮЛ</div>
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.1s ease .24s,transform 1.1s cubic-bezier(.2,.7,.2,1) .24s;margin-top:14px"><a href="tel:+77716759786" style="text-decoration:none;font-family:'Playfair Display',serif;color:#9a5b3a;font-size:clamp(14px,3.8vw,18px);letter-spacing:.12em">+7 771 675 9786</a></div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section style="position:relative;padding:clamp(70px,12vw,120px) 22px clamp(120px,18vw,180px);overflow:hidden;background:linear-gradient(#f4efe4,#efe7d7)">
+  <div data-par="-0.03" style="position:absolute;bottom:-20px;left:-20px;width:clamp(150px,42vw,240px);z-index:2"><img src="project/assets/floral-br.png" style="width:100%;display:block" alt=""></div>
+  <div data-par="-0.045" style="position:absolute;bottom:-20px;right:-20px;width:clamp(150px,42vw,240px);z-index:2"><img src="project/assets/floral-br.png" style="width:100%;display:block;transform:scaleX(-1)" alt=""></div>
+  <div style="max-width:560px;margin:0 auto;text-align:center;position:relative;z-index:3">
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.2s ease,transform 1.2s cubic-bezier(.2,.7,.2,1);display:flex;justify-content:center;margin-bottom:clamp(24px,5vw,38px)">
+      <span style="font-family:'Playfair Display',serif;font-style:italic;color:#c9a24c;font-size:clamp(40px,11vw,64px)">✦</span>
+    </div>
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.2s ease .1s,transform 1.2s cubic-bezier(.2,.7,.2,1) .1s;font-family:'Playfair Display',serif;color:#7a1320;font-size:clamp(21px,6vw,36px);letter-spacing:.06em;line-height:1.5">КЕЛІҢІЗДЕР,<br>ҚУАНЫШЫМЫЗҒА ОРТАҚ<br>БОЛЫҢЫЗДАР!</div>
+    <div data-reveal style="opacity:0;transform:translateY(32px);transition:opacity 1.2s ease .2s,transform 1.2s cubic-bezier(.2,.7,.2,1) .2s;font-family:'Playfair Display',serif;color:#9a5b3a;font-size:clamp(12px,3.2vw,15px);letter-spacing:.24em;margin-top:clamp(28px,6vw,42px)">06 ҚЫРКҮЙЕК 2026 • АЛМАТЫ</div>
+  </div>
+</section>
+</div>
+
+<div id="petals" style="position:fixed;inset:0;pointer-events:none;z-index:60;overflow:hidden"></div>
+<button id="musicbtn" data-on="0" title="Музыканы қосу" aria-label="Музыка" style="position:fixed;top:16px;right:16px;z-index:80;width:46px;height:46px;border-radius:50%;border:1px solid #c9a24c;background:#fbf7ec;display:flex;align-items:center;justify-content:center;gap:3px;cursor:pointer;box-shadow:0 0 0 1px #c9a24c,0 6px 16px rgba(0,0,0,.25);transition:box-shadow .4s ease">
+  <span data-eq style="display:block;width:3px;height:11px;background:#7a1320;border-radius:2px;transform-origin:bottom;animation:eq .9s ease-in-out infinite;animation-play-state:paused"></span>
+  <span data-eq style="display:block;width:3px;height:17px;background:#7a1320;border-radius:2px;transform-origin:bottom;animation:eq .9s ease-in-out .25s infinite;animation-play-state:paused"></span>
+  <span data-eq style="display:block;width:3px;height:13px;background:#7a1320;border-radius:2px;transform-origin:bottom;animation:eq .9s ease-in-out .5s infinite;animation-play-state:paused"></span>
+</button>
+
+<script>
+(function(){
+  var target=new Date('2026-09-06T15:00:00+05:00').getTime();
+  var pad=function(n){return String(n).padStart(2,'0');};
+  function tick(){var diff=Math.max(0,target-Date.now());var d=Math.floor(diff/86400000);diff-=d*86400000;var h=Math.floor(diff/3600000);diff-=h*3600000;var m=Math.floor(diff/60000);diff-=m*60000;var s=Math.floor(diff/1000);var e=document.getElementById.bind(document);if(e('cd-d'))e('cd-d').textContent=String(d);if(e('cd-h'))e('cd-h').textContent=pad(h);if(e('cd-m'))e('cd-m').textContent=pad(m);if(e('cd-s'))e('cd-s').textContent=pad(s);}
+  tick();setInterval(tick,1000);
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none';io.unobserve(e.target);}});},{threshold:0.16,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('[data-reveal]').forEach(function(el){io.observe(el);});
+  var pars=Array.from(document.querySelectorAll('[data-par]'));var tk=false;
+  function onScroll(){if(tk)return;tk=true;requestAnimationFrame(function(){pars.forEach(function(el){var sp=parseFloat(el.dataset.par)||0;var r=el.getBoundingClientRect();var rel=(window.innerHeight/2)-(r.top+r.height/2);el.style.transform='translate3d(0,'+(rel*sp).toFixed(1)+'px,0)';});tk=false;});}
+  window.addEventListener('scroll',onScroll,{passive:true});window.addEventListener('resize',onScroll);onScroll();
+  var pc=document.getElementById('petals');
+  if(pc){var colors=['#7a1320','#9c2330','#5e0d15','#e7d6ad','#caa24c'];for(var i=0;i<16;i++){var o=document.createElement('div');var dur=9+Math.random()*9;var delay=-Math.random()*dur;var left=Math.random()*100;var sz=8+Math.random()*12;o.style.cssText='position:absolute;top:0;left:'+left+'vw;will-change:transform;animation:pf-fall '+dur+'s linear '+delay+'s infinite';var inner=document.createElement('div');var c=colors[Math.floor(Math.random()*colors.length)];inner.style.cssText='width:'+sz+'px;height:'+(sz*0.72).toFixed(1)+'px;border-radius:0 100% 0 100%;background:radial-gradient(130% 130% at 30% 20%,rgba(255,255,255,.55),'+c+');opacity:'+(0.32+Math.random()*0.4).toFixed(2)+';animation:pf-sway '+(2.6+Math.random()*2.6).toFixed(2)+'s ease-in-out '+delay+'s infinite';o.appendChild(inner);pc.appendChild(o);}}
+  var music={on:false,ctx:null,timer:null,master:null};var btn=document.getElementById('musicbtn');
+  function updateBtn(){var on=music.on;document.querySelectorAll('[data-eq]').forEach(function(b){b.style.animationPlayState=on?'running':'paused';});if(btn){btn.style.boxShadow=on?'0 0 0 1px #c9a24c,0 0 22px rgba(201,162,76,.55)':'0 0 0 1px #c9a24c,0 6px 16px rgba(0,0,0,.25)';btn.title=on?'Музыканы өшіру':'Музыканы қосу';}}
+  function startSeq(){var ctx=music.ctx;var scale=[392,440,523.25,587.33,659.25];var bass=[196,146.83];var motif=[0,2,1,3,2,4,3,1,2,0,1,2,4,3,2,1];var beat=0.46;var step=0;var next=ctx.currentTime+0.08;function pluck(freq,t,peak,dur,type){var o=ctx.createOscillator();var g=ctx.createGain();var f=ctx.createBiquadFilter();o.type=type||'triangle';o.frequency.value=freq;f.type='lowpass';f.frequency.value=2300;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(peak,t+0.012);g.gain.exponentialRampToValueAtTime(0.0001,t+dur);o.connect(f);f.connect(g);g.connect(music.master);o.start(t);o.stop(t+dur+0.05);}
+  if(music.timer)clearInterval(music.timer);music.timer=setInterval(function(){if(!music.on)return;var t=Math.max(next,ctx.currentTime+0.02);pluck(scale[motif[step%motif.length]],t,0.5,1.7,'triangle');if(step%4===0)pluck(bass[Math.floor(step/4)%2],t,0.3,2.6,'sine');if(step%8===3)pluck(scale[motif[(step+2)%motif.length]]*2,t+beat/2,0.16,1.0,'triangle');step++;next=t+beat;},beat*1000);}
+  function toggleMusic(){var AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;if(!music.ctx){music.ctx=new AC();music.master=music.ctx.createGain();music.master.gain.value=0;music.master.connect(music.ctx.destination);}if(music.ctx.state==='suspended')music.ctx.resume();if(music.on){music.on=false;music.master.gain.cancelScheduledValues(music.ctx.currentTime);music.master.gain.setValueAtTime(music.master.gain.value,music.ctx.currentTime);music.master.gain.linearRampToValueAtTime(0,music.ctx.currentTime+0.5);if(music.timer){clearInterval(music.timer);music.timer=null;}}else{music.on=true;music.master.gain.cancelScheduledValues(music.ctx.currentTime);music.master.gain.setValueAtTime(0,music.ctx.currentTime);music.master.gain.linearRampToValueAtTime(0.16,music.ctx.currentTime+0.8);startSeq();}updateBtn();}
+  if(btn)btn.addEventListener('click',toggleMusic);
+})();
+</script>
+</body>
+</html>
